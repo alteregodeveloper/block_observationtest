@@ -8,3 +8,4 @@
 
 $string['pluginname'] = 'Observation Summarize';
 $string['observationsummarize'] = 'Observation Summarize';
+$string['modulenameplural'] = 'Observation Summarizes';
