@@ -28,7 +28,7 @@ class block_observationsummarize extends block_base {
             return $this->content;
         }
 
-        $this->content->text  = '<a href="'.$CFG->wwwroot.'/blocks/observationsummarize/index.php?id='.$this->page->course->id.'">' . get_string('observationsummarize', 'block_observationsummarize') . '</a>';
+        $this->content->text  = '<a href="'.$CFG->wwwroot.'/blocks/observationsummarize/index.php?id='.$this->page->course->id.'"><img src="' . $CFG->wwwroot . '/blocks/observationsummarize/pix/icon.png" /> ' . get_string('observationsummarize', 'block_observationsummarize') . '</a>';
 
         return $this->content;
     }

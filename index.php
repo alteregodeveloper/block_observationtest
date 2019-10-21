@@ -30,7 +30,7 @@ $PAGE->set_pagetype('course-view-' . $course->format);
 $PAGE->add_body_class('path-user');
 $PAGE->set_other_editing_capability('moodle/course:manageactivities');
 echo $OUTPUT->header();
-echo '<h2>' . $pluginname . '</h2>';
+echo '<h2><img src="' . $CFG->wwwroot . '/blocks/observationsummarize/pix/icon.png" /> ' . $pluginname . '</h2>';
 
 $activities = get_activities($courseid);
 $results = get_results_avg($USER->id,$courseid);
