@@ -9,18 +9,19 @@
 function get_activities($courseid) {
     global $DB;
 
-    $tests = $DB->get_records_menu('observationtest',array('course' => $courseid),null,'id,name');
-    $labels = array();
-    foreach($tests as $test) {
-        array_push($labels,$test);
+    $query = 'SELECT exercise FROM mdl_observation_result GROUP BY exercise ORDER BY exercise';
+    $results = $DB->get_records_sql($query);
+    $values = array();
+    foreach($results as $result) {
+        array_push($values,$result->exercise);
     }
-    return $labels;
+    return $values;
 }
 
 function get_results_avg($userid,$courseid) {
     global $DB;
 
-    $query = 'SELECT mdl_observation_result.testid AS testid, ROUND(AVG(mdl_observation_result.result),2) AS average FROM mdl_observation_result JOIN mdl_observationtest ON mdl_observationtest.id = mdl_observation_result.testid WHERE mdl_observation_result.userid = ' . $userid . ' AND mdl_observationtest.course = ' . $courseid . ' GROUP BY mdl_observation_result.testid ORDER BY mdl_observation_result.testid';
+    $query = 'SELECT mdl_observation_result.exercise AS exercise, ROUND(AVG(mdl_observation_result.result),2) AS average FROM mdl_observation_result JOIN mdl_observationtest ON mdl_observationtest.id = mdl_observation_result.testid WHERE mdl_observation_result.userid = ' . $userid . ' AND mdl_observationtest.course = ' . $courseid . ' GROUP BY mdl_observation_result.exercise ORDER BY mdl_observation_result.exercise';
     $results = $DB->get_records_sql($query);
     $values = array();
     foreach($results as $result) {
