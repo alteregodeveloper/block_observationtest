@@ -26,5 +26,5 @@ $plugin->version = 20190901;
 $plugin->requires = 2014111000;
 $plugin->cron = 0;
 $plugin->component = 'block_observationsummarize';
-$plugin->maturity = MATURITY_RC;
-$plugin->release = 'v0.1';
+$plugin->maturity = MATURITY_STABLE;
+$plugin->release = 'v1.0';
