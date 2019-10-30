@@ -9,7 +9,7 @@
 function get_activities($userid,$courseid) {
     global $DB;
 
-    $query = 'SELECT exercise FROM mdl_observation_result WHERE userid = ' . $userid . ' GROUP BY exercise ORDER BY exercise';
+    $query = 'SELECT exercise FROM mdl_observation_result JOIN mdl_observationtest ON mdl_observationtest.id = mdl_observation_result.testid WHERE mdl_observation_result.userid = ' . $userid . ' AND mdl_observationtest.course = ' . $courseid . ' GROUP BY mdl_observation_result.exercise ORDER BY mdl_observation_result.exercise';
     $results = $DB->get_records_sql($query);
     $values = array();
     foreach($results as $result) {
