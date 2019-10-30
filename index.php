@@ -32,7 +32,7 @@ $PAGE->set_other_editing_capability('moodle/course:manageactivities');
 echo $OUTPUT->header();
 echo '<h2><img src="' . $CFG->wwwroot . '/blocks/observationsummarize/pix/icon.png" /> ' . $pluginname . '</h2>';
 
-$activities = get_activities($courseid);
+$activities = get_activities($USER->id,$courseid);
 $results = get_results_avg($USER->id,$courseid);
 
 $chart = new \core\chart_line();

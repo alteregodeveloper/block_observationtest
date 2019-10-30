@@ -6,10 +6,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-function get_activities($courseid) {
+function get_activities($userid,$courseid) {
     global $DB;
 
-    $query = 'SELECT exercise FROM mdl_observation_result GROUP BY exercise ORDER BY exercise';
+    $query = 'SELECT exercise FROM mdl_observation_result WHERE userid = ' . $userid . ' GROUP BY exercise ORDER BY exercise';
     $results = $DB->get_records_sql($query);
     $values = array();
     foreach($results as $result) {
