@@ -22,7 +22,7 @@
  
 defined('MOODLE_INTERNAL') || die();
  
-$plugin->version = 20190901;
+$plugin->version = 2019102100;
 $plugin->requires = 2014111000;
 $plugin->cron = 0;
 $plugin->component = 'block_observationsummarize';
